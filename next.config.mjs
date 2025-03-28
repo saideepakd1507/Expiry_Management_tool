@@ -5,23 +5,45 @@ try {
   // ignore error
 }
 
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
-  experimental: {
-    webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
-  },
+    output: 'export', // Required for GitHub Pages or static hosting
+    images: {
+        unoptimized: true, // Needed for static export
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+    experimental: {
+        webpackBuildWorker: true,
+        parallelServerBuildTraces: true,
+        parallelServerCompiles: true,
+    },
 }
+
+export default nextConfig
+
+///** @type {import('next').NextConfig} */
+//const nextConfig = {
+//  eslint: {
+//    ignoreDuringBuilds: true,
+//  },
+//  typescript: {
+//    ignoreBuildErrors: true,
+//  },
+//  images: {
+//    unoptimized: true,
+//  },
+//  experimental: {
+//    webpackBuildWorker: true,
+//    parallelServerBuildTraces: true,
+//    parallelServerCompiles: true,
+//  },
+//}
 
 mergeConfig(nextConfig, userConfig)
 
